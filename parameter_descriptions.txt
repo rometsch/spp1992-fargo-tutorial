@@ -1,0 +1,414 @@
+l0: Base length unit of the simulation [default: 1.0 au]
+	default: 1.0
+m0: Base mass unit of the simulation [default: 1.0 solMass]
+	default: 1.0
+NRAD: Number of radial cells.
+	default: 64
+NSEC: Number of azimuthal cells
+	default: 64
+QUANTITIESRADIUSLIMIT: "Limit the calculation of disk quantities to inside this radius. [default: 2 RMAX]"
+	default: 5
+DiskRadiusMassFraction: Calculation of the disk radius: this fraction of the total mass is contained within the disk radius.
+	default: 0.99
+ExponentialCellSizeFactor: Cell size increase factor to build an exponential grid. Only relevant for exponential grid type.
+	default: 1.4
+RadialSpacing: Type of the radial grid spacing.
+	default: ARITHMETIC, choices: Logarithmic or ARITHMETIC or Exponential
+DoWrite1DFiles: Write out 1D files additional to the 2D output.
+	default: yes, choices: yes, no
+WriteDensity: Write surface density. This is needed for restart of simulations.
+	default: True, choices: yes, no
+WriteVelocity: Write velocites. This is needed for restart of simulations.
+	default: True, choices: yes, no
+WriteEnergy: Write energy. This is needed for restart of (adiabatic) simulations.
+	default: True, choices: yes, no
+WriteTemperature: Write 2D temperature.
+	default: False, choices: yes, no
+WriteSoundSpeed: Write 2D sound speed.
+	default: False, choices: yes, no
+WriteEffectiveGamma: Write 2D effective adiabatic index.
+	default: False, choices: yes, no
+WriteFirstAdiabaticIndex: Write 2D data of the first adiabatic index. Usefull for PVTE EoS.
+	default: False, choices: yes, no
+WriteAlpha: Write 2D data of viscous alpha.
+	default: False, choices: yes, no
+WriteMeanMolecularWeight: Write 2D data of mean molecular weight.
+	default: False, choices: yes, no
+WritePressure: Write 2D array of pressure.
+	default: False, choices: yes, no
+WriteToomre: Write 2D array of Toomre parameter Q.
+	default: False, choices: yes, no
+WritePotential: Write 2D array of the gravitational potential.
+	default: False, choices: yes, no
+WriteQPlus: Write 2D array of heating terms.
+	default: False, choices: yes, no
+WriteQMinus: Write 2D array of cooling terms.
+	default: False, choices: yes, no
+WriteKappa: Write 2D array of opacity.
+	default: False, choices: yes, no
+WriteTauCool: Write 2D array of optical depth for cooling.
+	default: False, choices: yes, no
+WriteAlphaGrav: Write 2D array of alpha value gravitational strees.
+	default: False, choices: yes, no
+WriteAlphaGravMean: Write 2D array of azimuthal mean of the alpha value of gravitational stress.
+	default: False, choices: yes, no
+WriteAlphaReynolds: Write 2D array of alpha value Reynolds strees.
+	default: False, choices: yes, no
+WriteAlphaReynoldsMean: Write 2D array of azimuthal mean of the alpha value of Reynolds stress.
+	default: False, choices: yes, no
+WriteViscosity: Write 2D array of the kinematic viscosity.
+	default: False, choices: yes, no
+WriteDivV: Write 2D array of divergence of velocity.
+	default: False, choices: yes, no
+WriteEccentricity: Write 2D array of eccentricity based on specific angular momentum of the cell.
+	default: False, choices: yes, no
+WriteTReynolds: Write 2D array of the Reynolds stress.
+	default: False, choices: yes, no
+WriteTGravitational: Write 2D array of the gravitational stress.
+	default: False
+WriteGasTorques: Calculate and write gravitational/viscous and advection torques on gas. See Miranda et al. 2017
+	default: False, choices: yes, no
+WritepDV: Write 2D array of pressure * divergence of v.
+	default: False, choices: yes, no
+WriteTau: Write 2D array of optical depth.
+	default: False, choices: yes, no
+WriteScaleHeight: Write 2D array of the scale height.
+	default: False, choices: yes, no'
+WriteAspectratio: Write 2D array of the aspect ratio.
+	default: False, choices: yes, no
+WriteVisibility: Write 2D array of visibility.
+	default: False, choices: yes, no
+WriteRadialLuminosity: Write 1D radial array of luminosity.
+	default: False, choices: yes, no
+WriteRadialDissipation: Write 1D raidal array of dissipated energy.
+	default: False, choices: yes, no
+WriteVerticalOpticalDepth: Write 2D of optical depth in vertical direction (tau_eff by Hubeny [1990]).
+	default: False
+WriteTorques: Calculate and write 2D array of torques acting on each planet/star.
+	default: False
+WriteDiskQuantities: Write a collection of disk quantities (mass, eccentricity, periastron, semi_major_axis, ...)
+	default: yes, choices: yes, no
+WriteAtEveryTimestep: Write some quantities (planet positions, disk quantities, ...) at every Timestep.
+	default: True, choices: yes, no
+WriteLightCurves: Write light curves.
+	default: False, choices: yes, no
+BitwiseExactRestarting: Write out Qplus and Qminus 2D arrays to snapshot for bitwise exact restarting. This is really usefull to test development changes in the code.
+	default: False, choices: yes, no
+WriteMassFlow: Write a 1D radial file with mass flow at each interface. Track accretion through the disk.
+	default: False, choices: yes, no
+LogAfterSteps: Write a log message to console after this number hydro steps. Setting to 0 disables this feature.
+	default: 0, choices: positive integers
+LogAfterRealSeconds: Write a log message to console after this number of real seconds. Setting to 0 disables this feature.
+	default: 600, choices: positive integers
+InnerBoundary: Boundary condition at the inner boundary.
+	default: Open, choices: Open, Reflective/Rigid, Viscous, ZeroGradient, PrescribedTimeVariable, BoundaryLayer
+OuterBoundary: Boundary condition at the outer boundary.
+	default: Open, choices: Open, Reflective/Rigid, ZeroGradient, PrescribedTimeVariable, BoundaryLayer
+DomegaDrZero: Set dOmega/dr = 0 at outer boundary
+	default: False, choices: yes, no
+ViscousOutflowSpeed: # Viscous outflow speed vr(0) = -3/2 nu / R(0) * ViscousOutflowSpeed used for VISC boundary condition and inside viscous accretion.
+	default: 1, choices: positive float
+Damping: Use a wave-damping zone. Exponentially damp to a profile.
+	default: False, choices: yes, no
+DampingInnerLimit: Set the outer limit of the inner wave damping zone: Rmin*Limit. Zone is diabled for limit < 1. Rmin is the radius of the inner boundary.
+	default: 1.05, choices: positive floats
+DampingOuterLimit: Set the inner limit of the outer wave damping zone: Rmax*Limit. Zone is diabled for limit > 1. Rmax is the radius of the outer boundary.
+	default: 0.95, choices: positive floats
+DampingTimeFactor: Damping time factor. Values will be exponentially damped on a timescale of factor*Keplerian Period at boundary radius.
+	default: 1
+DampingTimeRadiusOuter: Reference radius for the outer damping time. default: Outer domain radius RMAX
+	default: 2.5, choices: positive floats
+DampingVRadialInner: Target quantity of radial velocity at inner boundary.
+	default: None, choices: initial, mean, zero, none
+DampingVRadialOuter: Target quantity of radial velocity at outer boundary
+	default: None, choices: initial, mean, zero, none
+DampingVAzimuthalInner: Target quantity of azimuthal velocity at inner boundary
+	default: None, choices: initial, mean, zero, none
+DampingVAzimuthalOuter: Target quantity of azimuthal velocity at outer boundary
+	default: None, choices: initial, mean, zero, none
+DampingSurfaceDensityInner: Target quantity of surface density at inner boundary
+	default: None, choices: initial, mean, zero, none
+DampingSurfaceDensityOuter: Target quantity of surface density at outer boundary
+	default: None, choices: initial, mean, zero, none
+DampingEnergyInner: Target quantity of energy at inner boundary
+	default: None, choices: initial, mean, zero, none
+DampingEnergyOuter: Target quantity of energy at outer boundary
+	default: None, choices: initial, mean, zero, none
+DISK: Turn on hydro part of the simulation. Set this to no to, e.g., test the dust module.
+	default: yes, choices: yes, no
+CorotationReferenceBody: Select the Nbody object which is the reference object for the automatic calculation of the corotation angular velocity for a rotating frame.
+	default: 1, choices: positive integers
+mu: Mean molecular weight of the gas. TODO: change default value.
+	default: 1, choices: positive float
+MinimumTemperature: Temperature floor.
+	default: 3 K, choices: positive float w/wo unit
+MaximumTemperature: Temperature ceiling.
+	default: 1.0e300 K, choices: positive float w/wo unit
+HeatingViscous: Enable viscous heating. TODO: change default to yes
+	default: No, choices: yes, no
+HeatingViscousFactor: Fudge factor for viscous heating. Leave this at 1.
+	default: 1, choices: positive float.
+RadiativeDiffusion: Turn on 2D FLD to simulate radiative transport in the midplane.
+	default: no, choices: yes, no
+RadiativeDiffusionOmega: Parameter for the succesive-overrelaxation (SOR) solver for the linear system of the FLD radiative transport.
+	default: 1.5
+RadiativeDiffusionAutoOmega: Automatically update SOR Omega. Needs testing. Do not set to yes.
+	default: no
+RadiativeDiffusionMaxIterations: Maximum number of SOR iterations for FLD.
+	default: 50000
+zbufferSize: 
+	default: 100
+zbufferMaxAngle: 
+	default: 0.17453292519943295
+CoolingRadiativeFactor: Fudge factor for radiative cooling. Leave this at 1.
+	default: 1
+CoolingRadiativeLocal: Enable local radiative cooling Q- = 2 * sigma_R * T_eff^4.
+	default: no, choices: yes, no
+CoolingBetaLocal: Enable beta cooling Q- = T * Omega/beta
+	default: no, choices: yes, no
+CoolingBeta: Paramter value of beta for the beta cooling.
+	default: 1
+CoolingBetaRampUp: Increase beta cooling on this timescale.
+	default: 0
+CoolingScurve: Enable Scurve Cooling
+	default: no, choices: yes, no
+CoolingBetaReference: Reference temperature/energy profile for beta cooling.
+	default: Zero, choices: zero, initial, aspectratio
+InitializePureKeplerian: Initialize VRadial=0 and VAzimuthal=(GM/r)^(1/2)
+	default: no, choices: yes, no
+InitializeVradialZero: Initialize VRadial=0  [default = no]
+	default: no, choices: yes, no
+SigmaCondition: # Initialize surface density by Profile, 1D data file or 2D data file.
+	default: Profile, choices: Profile, 1D, 2D
+SigmaFilename: File to read surface density from (when Condition = 1D or 2D)
+	default: 
+EnergyCondition: Initialize energy by Profile, 1D data file or 2D data file.
+	default: Profile, choices: Profile, 1D, 2D
+EnergyFilename: File to read energy from (when Condition = 1D or 2D)
+	default: 
+RandomSeed: Random seed integer value for noise on initial profile.
+	default: 0
+RandomSigma: Put random noise on surface density at start values.
+	default: no, choices: yes, no
+RandomFactor: Randomize by +- 10%
+	default: 0.1
+FeatureSize: Feature size of the open somplex algorithm.
+	default: 0.014
+SigmaFloor: Floor surface density in multiples of sigma0.
+	default: 1e-09
+SIGMA0: Set the scale for the Surface density profile: Sigma = Sigma0 * r^-SigmaSlope. TODO: change to value with unit.
+	default: 173
+SetSigma0: Renormalize Sigma0 to have M_disc = discmass in units.
+	default: no, choices: yes, no
+discmass: In case of SetSigma0=yes, use this mass as diskmass.
+	default: 0.01
+DensityFactor: Factor for convertion from surface density to density. Leave this as it is! [default = sqrt(2.0*pi)]
+	default: 2.5066282746310002
+TauFactor: Fudge factor for tau. Leave this as it is! [default = 1.0] TODO: change default value.
+	default: 0.5
+KappaFactor: Fudge factor for kappa. Leave this as it is!
+	default: 1
+TauMin: Tau min for the effective optical depth calculateion. See Hubney (1990), Müller & Kley (2012) and DAngelo & Marzari (2015).
+	default: 0.01
+VazimuthalConsidersQuadropoleMoment: Add quadropole moment support in initialization of azimuthal velocity.
+	default: no, choices: yes, no
+ArtificialViscosity: Type of artificial viscosity [default = SN] TODO: change default to TW
+	default: SN, choices: none, TW, SN
+ArtificialViscosityDissipation: # Use artificial viscosity in dissipation function.
+	default: yes, choices: yes, no
+ArtificialViscosityFactor: Artificial viscosity factor/constant (von Neumann-Richtmyer constant).
+	default: 1.41
+KeepDiskMassConstant: Rescale the mass of the disk periodically. You likely want to keep this turned off.
+	default: no, choices: yes, no
+ThicknessSmoothing: Smoothing/softening parameters for the Nbody-disk gravitional interaction in multiples of the disk scaleheight.
+	default: 0.6
+ThicknessSmoothingSG: Smoothing/softening parameter for SG [default = ThicknessSmoothing] TODO: change the default to thickness smoothing
+	default: 1.2
+NaiveSmoothing: Use the scale height at the planet position for the smoothing length calculation instead of the scaleheight at the cell.
+	default: no, choices: yes, no
+CorrectDiskSelfgravity: Substract the azimuthal average of the surface density in the calculation of torques on Nbody object to make the disk and Nbody have the same central mass around which they orbit. See Baruteau & Masset (2008). [default=not selfgravity turned on]
+	default: no, choices: yes, no
+IntegratePlanets: Evolve the Nbody system.
+	default: yes, choices: yes, no
+SecondaryDisk: Initialize a secondary disk. This is used for binary star systems.
+	default: no, choices: yes, no
+massoverflow: Enable a constant massflow coming though the outer boundary.
+	default: no, choices: yes, no
+variableTransfer: ?
+	default: no
+mofplanet: ?
+	default: 1
+moftemperature: ?
+	default: 1000.0 K
+mofvalue: ?
+	default: 1e-08
+moframpingtime: Gradual increase for the mass overflow.
+	default: 30
+mofaveragingtime: ?
+	default: 10
+mofgamma: ?
+	default: 0.5
+AlphaMode: Select how the viscosity is calculated. 0: Const alpha  1: Scurve Alpha  2: Nbody distance dependend
+	default: 0, choices: 0, 1, 2
+alphaCold: Alpha value for the cold state in scurve alpha.
+	default: 0.01
+alphaHot: Alpha value for the hot state in scurve alpha.
+	default: 0.1
+CircumBinaryRing: Initialize a circumbinary ring.
+	default: no, choices: yes, no
+CircumBinaryRingPosition: Position of the circumbinary ring.
+	default: 4.5
+CircumBinaryRingWidth: Width of the circumbinary ring.
+	default: 0.6
+CircumBinaryDecayWidth: ?
+	default: 0.84
+CircumBinaryDecayExponent: ?
+	default: 0.75
+CircumBinaryRingEnhancementFactor: ?
+	default: 2.5
+CenterProfileDensityCorrectionFactor: ?
+	default: 1
+ProfileCutoffOuter: Enable exponential cutoff for the density profile at the outer boundary.
+	default: no
+ProfileCutoffPointOuter: Location of the cuttoff at the outer boundary.
+	default: 1e+300
+ProfileCutoffWidthOuter: Width of the cutoff at the outer boundary.
+	default: 1
+ProfileCutoffInner: Enable exponential cutoff for the density profile at the inner boundary.
+	default: no
+ProfileCutoffPointInner: Location of the cuttoff at the inner boundary.
+	default: 0
+ProfileCutoffWidthInner: Width of the cutoff at the inner boundary.
+	default: 1
+DiskFeedback: Enable gravitational forces from the disk onto the planets. Enable migration.
+	default: yes, choices: yes, no
+AccreteWithoutDiskFeedback: Let planets accrete without disk feedback being enabled.
+	default: no
+PlanetOrbitDiskTest: Enable test mode for a planet orbiting around just a disk.
+	default: no
+StarDiskBinaryTest: Enable test mode for a star and disk/clump binary system.
+	default: no
+IndirectTermMode: Select the way the indirect term is calculated. You likely want 0. 0: indirect term from rebound with shift; 1: euler with shift (original)
+	default: 0, choices: 0, 1
+SelfGravity: Enable self-gravity. This uses the Fourier-Convolution technique from Clement Baruteau with a modification for the scale height by Tobias Modlenhauer to make the accelerations symmetric.
+	default: no, choices: Yes, Z, No
+BodyForceFromPotential: Consider the gravitational force from the Nbody onto the disk via the potential.
+	default: yes
+Opacity: Opacity table to use.
+	default: Lin, choices: Lin, Bell, Zhu, Kramers
+RadialViscosityFactor: Viscosity in radial direction is mutliplied with this factor to avoid oscillations.
+	default: 1
+VRadIn: For inner boundary = boundary layer: value of v_rad at inner boundary in terms of Keplerian velocity v_kepler at the inner boundary.
+	default: 0.0016
+StellarRotation: For inner boundary = boundary layer: Stellar rotation rate (azimuthal velocity of the surface) in terms of Keplerian angular velocity at the inner boundary.
+	default: 0.1
+MassAccretionRate: For inner boundary = boundary layer: Mass accretion rate (from secondary, young stellar cloud, etc.).
+	default: 1e-09
+MassAccretionRadius: For inner boundary = boundary layer: Mass accretion radius in unints of R_hill / 2.
+	default: 1
+KlahrSmoothingRadius: Smoothing radius for Klahr & Kley smoothing around the secondary if H is calculated using all Nbody objects.
+	default: 1
+ViscAccretMassflowTest: Enable viscous accretion massflow test.
+	default: no
+CFL: CFL factor.
+	default: 0.5
+HeatingCoolingCFLlimit: Energy change dT/T in substep3 only allowed to change by this fraction times CFL.
+	default: 10
+CFLmaxVar: Maximum variation of the CFL timestep over one iteration.
+	default: 1.1
+CartesianParticles: Particle coordinates in cartesian coordinates.
+	default: no, choices: yes, no
+IntegrateParticles: Enable the particle module.
+	default: no, choices: yes, no
+NumberOfParticles: Number of particles.
+	default: 0
+ParticleRadius: Particle radius in cm [default = 100] TODO: change default radius to 1cm
+	default: 100.0 cm
+ParticleSpeciesNumber: Number of particle species/sizes.
+	default: 1
+ParticleRadiusIncreaseFactor: Increase the size of each particle species by this factor. The size of the nth particle species is then ParticleRadius*IncreaseFactor^{n-1}.
+	default: 10
+ParticleEccentricity: Initialize the particles with eccentricities drawn from a uniform random distribution between 0 and this number.
+	default: 0
+ParticleDensity: Particle material density. [default = 2.65, Siliciumdioxid].
+	default: 2.65 g/cm3
+ParticleSurfaceDensitySlope: Slope of particle surface density distribution: Sigma(r) = Sigma0 * r^(-ParticleSurfaceDensitySlope). [default = SigmaSlope]
+	default: 0
+ParticleMinimumRadius: Initialize particles starting at this radius. [default = RMIN]
+	default: 0.4
+ParticleMaximumRadius: Initialize particles up to this radius. [default = RMAX]
+	default: 2.5
+ParticleMinimumEscapeRadius: Eject particles that move inside this radius. [default = ParticleMinimumRadius]
+	default: 0.4
+ParticleMaximumEscapeRadius: Eject particles that move outside this radius. [default = ParticleMaximumRadius]
+	default: 2.5
+ParticleGasDragEnabled: Enable particle gas drag.
+	default: True
+ParticleDiskGravityEnabled: Enable disk self-gravity acting on particles. TODO: this should be set to default to reflect the self-gravity flag.
+	default: False
+ParticleDustDiffusion: Enable dust diffusion.
+	default: False
+ParticleIntegrator: Select the particle integrator. Explicit (Cash-Carp with adaptive timesteping), Midpoint (Mignone 2019)
+	default: m, choices: e, m
+ShockTube: Initialize shocktube problem with 0:no shocktube 1:Ideal EOS (perfect gas) 2: PVTE EOS (variableGamma)
+	default: 0, choices: 0, 1, 2
+SpreadingRing: Initialize the simulation with the spreading ring test case.
+	default: False, choices: yes, no
+FirstDT: Initialization value for the hydro dt in case of hydro simulations turned off. Otherwise CFL dt is used.
+	default: 1e-09
+SIGMASLOPE: Powerlaw exponent (the nagative of it) of the initial surface density profile. Sigma = Sigma0 * r^-SigmaSlope.
+	default: 0, choices: float
+IMPOSEDDISKDRIFT: Initialize with an imposed accretion through the disk. ?
+	default: 0
+FLARINGINDEX: Specify the flaring index. H = H0 * r^{1+flaringindex}.
+	default: 0
+OUTPUTDIR: Specify the output directory.
+	default: output/
+OUTERSOURCEMASS: ?
+	default: no
+TRANSPORT: Specify whether or not to use the Fargo method (fast) or the standard method (slow).
+	default: Fast, choices: fast, slow
+Integrator: Select timestepping for hydro simulation: Euler or LeapFrog
+	default: Euler, choices: Euler, LeapFrog
+ASPECTRATIO: Set the reference value for the aspect ratio: h = ASPECTRATIO * r^{1+flaringindex}
+	default: 0.05
+AspectRatioMode: Compute aspectratio with respect to: 0: Primary object, 1: Nbody system, 2: Nbody center of mass
+	default: 0, choices: 0, 1, 2
+Temperature0: ?
+	default: -1
+NTOT: Number of snapshots to be written.
+	default: 1000
+NINTERM: Number of analysis outputs between two snapshots.
+	default: 10
+DT: Time between two analysis outputs. For default units, 2PI = 1 orbit at r=1.
+	default: 1
+cps: Set the resolution in terms of cells per scaleheight ar r=1: if cps > 0, overrides Nrad and Nsec and initializes them according to domain size and AspectRatio.
+	default: -1
+WriteEccentricityChange: Eccentricity change monitor.
+	default: no
+Frame: Select whether the rotating frame has a fixed angular velocity (F) or if it is updated (C).  F: Fixed, C: Corotating
+	default: Fixed, choices: F, C
+OMEGAFRAME: Specify the angular velocity with which the frame rotates.
+	default: 0
+HydroFrameCenter: Specify the origin of the simulation grid. Primary uses the central object, binary/tertiary/quatirary/all uses the center of mass of the first 2/3/4/all nbody objects
+	default: primary, choices: primary, binary, tertiary, quatirary, all
+Adiabatic: Deprecated. Dont use this anymore.
+	default: False
+EquationOfState: Select the equation of state.
+	default: Isothermal, choices: Isothermal, Ideal, PVTE, Polytropic 
+AdiabaticIndex: Numerical value or FIT_ISOTHERMAL (only for polytropic equation of state)
+	default: 1.4
+CICPLANET: ?
+	default: no
+ALPHAVISCOSITY: Specify the value of alpha for the alpha viscosity model.
+	default: 0
+VISCOSITY: Set a constant kinetic viscosity.
+	default: 0
+FluxLimiter: Selec the flux limiter for the upwind scheme.
+	default: VanLeer, choices: VanLeer, MC
+STABILIZEVISCOSITY: Artificially stabalize viscosity to avoid numerical issues.
+	default: 0
+STABILIZEARTVISCOSITY: Artificially stabalize artificial viscosity to avoid numerical issues.
+	default: 0
+WriteDefaultValues: Write a yaml file to the output directory containing all default values hardcoded in the code.
+	default: no, choices: yes, no

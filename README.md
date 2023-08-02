@@ -14,3 +14,11 @@ export PATH="$PATH:/path/to/fargo_repository"
 
 The documentation is not finished, but there is the `parameter_descriptions.txt` file. 
 It contains a description of all the parameters. Use the search function of your editor.
+
+Here is a list of parameters you might want to ues in this session:
+
+- DiskFeedback: turn on migration
+- HydroFrameCenter: select the center of the hydro grid
+- IntegrateParticles: add particles, search for the other parameters with particles
+- IndirectTermMode: try to break the simulation in a binary setup with HydroFrameCenter=Secondary
+- Alphaviscosity: value of the alpha viscosity
